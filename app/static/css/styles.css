@@ -1,0 +1,191 @@
+@import "fonts.css";
+
+body {
+    font-family: Parkinsans, sans-serif;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+}
+
+
+
+
+
+/* Стили для логотипа, если он является ссылкой */
+.header .logo {
+    font-size: 2rem; /* Увеличенный размер шрифта */
+    font-weight: bold; /* Жирный текст */
+    text-transform: uppercase; /* Заглавные буквы */
+    color: white !important; /* Белый цвет */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: color 0.3s ease, transform 0.3s ease; /* Эффект при наведении */
+}
+
+/* Для наведения на логотип */
+.header .logo:hover {
+    color: #ff9800 !important; /* Яркий оранжевый при наведении */
+    transform: scale(1.1); /* Легкое увеличение при наведении */
+}
+
+/* В случае, если логотип - это ссылка, явно отменяем стили для ссылок */
+.header .logo a {
+    color: white !important; /* Белый цвет для ссылки */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+/* Для наведения на ссылку в логотипе */
+.header .logo a:hover {
+    color: #ff9800 !important; /* Яркий оранжевый при наведении */
+}
+
+
+
+
+.header .nav a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.main {
+    padding: 2rem 0;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.product-card {
+    width: 30%;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-title {
+    font-size: 1.2rem;
+}
+
+.product-price {
+    color: #777;
+}
+
+.btn {
+    background-color: #333;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.auth-container {
+    width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 10px 0;
+}
+
+.auth-container button {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+
+
+/* Общие стили для auth-links */
+.auth-links {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.auth-links a {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #555;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.auth-links a:hover {
+    background-color: white;
+    color: #333;
+}
+.footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    width:100%;
+}
+
+
+
+.flash-messages {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 300px;
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+}
+
+.alert-success {
+    background-color: #4caf50;
+}
+
+.alert-error {
+    background-color: #f44336;
+}
+
+.alert-warning {
+    background-color: #ff9800;
+}
+
+.flash-messages.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease; /* Плавное исчезновение */
+}

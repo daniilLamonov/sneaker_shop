@@ -1,0 +1,18 @@
+{% extends "main/base.html" %}
+
+{% block title %}Edit goods - Sneaker Shop{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <h2>Edit product</h2>
+    <form method="post" enctype="multipart/form-data">
+        <input value="{{ product.name }}" type="text" placeholder="Name" name="name" required>
+        <input value="{{ product.size }}" type="text" placeholder="Size" name="size" required>
+        <input value="{{ product.color }}" type="text" placeholder="Color" name="color" required>
+        <input value="{{ product.price }}" type="text" placeholder="Price" name="price" required>
+        <input value="{{ product.image }}" type="file" placeholder="Add Image" name="image" required>
+
+        <button type="submit">Save</button>
+    </form>
+</div>
+{% endblock %}

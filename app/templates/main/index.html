@@ -1,0 +1,36 @@
+{% extends "main/base.html" %}
+
+{% block title %}Home - Sneaker Shop{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="section-title">Our Sneakers</h2>
+    <div class="product-grid">
+        {% for product in products %}
+        <div class="product-card">
+            <img src="{{ product.image }}" alt="{{ product.name }}">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.size }}</p>
+            <p>{{ product.color }}</p>
+            <p>{{ product.price }}</p>
+            {% if current_user.is_authenticated %}
+                <form method="post" action="{{ url_for('cart.add_to_cart', product_id=product.id) }}">
+                    <button type="submit" class="btn">Add to Cart</button>
+                </form>
+
+                <a href= "{{ url_for('product.edit', id=product.id) }}" class="btn">Edit</a>
+                <a href= "{{ url_for('product.delete', id=product.id) }}" class="btn">Delete</a>
+            {% else %}
+
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+<!--products = [
+    {"id": 1, "name": "Sneaker 1", "price": 120, "image": "https://via.placeholder.com/200"},
+    {"id": 2, "name": "Sneaker 2", "price": 150, "image": "https://via.placeholder.com/200"},
+    {"id": 3, "name": "Sneaker 3", "price": 180, "image": "https://via.placeholder.com/200"},
+]-->

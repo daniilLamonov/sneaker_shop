@@ -1,0 +1,24 @@
+ <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+         <script>
+            // Автоматическое скрытие flash-сообщений через 5 секунд
+            setTimeout(() => {
+                const flashMessages = document.querySelector('.flash-messages');
+                if (flashMessages) {
+                    flashMessages.style.transition = "opacity 0.5s ease";
+                    flashMessages.style.opacity = "0"; // Скрываем
+                    setTimeout(() => flashMessages.remove(), 500); // Удаляем через 500 мс
+                }
+            }, 5000); // 5000 мс = 5 секунд
+        </script>
+        {% endif %}
+    {% endwith %}
+    <!-- Flash Messages -->
