@@ -1,0 +1,12 @@
+{% extends "main/base.html" %}
+
+{% block title %}Your Cart - Sneaker Shop{% endblock %}
+
+{% block content %}
+<div class="cart-container">
+    <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <p>Total: $<span id="total-price">0</span></p>
+        <a href="{{ url_for('cart.open_cart') }}" class="btn">Proceed to Payment</a>
+</div>
+{% endblock %}
