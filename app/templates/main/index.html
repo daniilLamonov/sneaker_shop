@@ -8,18 +8,18 @@
     <div class="product-grid">
         {% for product in products %}
         <div class="product-card">
-            <img src="{{ product.image }}" alt="{{ product.name }}">
+            <img src="{{ url_for('static', filename='upload/' + product.image) }}" alt="{{ product.name }}">
             <h3>{{ product.name }}</h3>
             <p>{{ product.size }}</p>
             <p>{{ product.color }}</p>
             <p>{{ product.price }}</p>
-            {% if current_user.is_authenticated %}
+            {% if current_user.is_authenticated and current_user.status == 'admin' %}
+                <a href= "{{ url_for('product.edit', id=product.id) }}" class="btn">Edit</a>
+                <a href= "{{ url_for('product.delete', id=product.id) }}" class="btn">Delete</a>
+            {% elif current_user.is_authenticated and current_user.status == 'user'%}
                 <form method="post" action="{{ url_for('cart.add_to_cart', product_id=product.id) }}">
                     <button type="submit" class="btn">Add to Cart</button>
                 </form>
-
-                <a href= "{{ url_for('product.edit', id=product.id) }}" class="btn">Edit</a>
-                <a href= "{{ url_for('product.delete', id=product.id) }}" class="btn">Delete</a>
             {% else %}
 
             {% endif %}
