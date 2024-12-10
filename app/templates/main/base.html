@@ -14,16 +14,18 @@
 
                 {% if current_user.is_authenticated and current_user.status == 'admin'%}
                     <nav class="nav">
-                    <a href="{{ url_for('product.create') }}">Add product 🛒</a>
+                    <a href="{{ url_for('product.create') }}">Add product</a>
                      <div class="auth-links">
                         <a href="{{ url_for('user.logout') }}">Logout</a>
                     </div>
-                     </nav>
+                    </nav>
                 {% elif current_user.is_authenticated and current_user.status == 'user'%}
+                    <nav class="nav">
                     <a href="{{ url_for('cart.view_cart') }}">Cart 🛒</a>
                     <div class="auth-links">
                         <a href="{{ url_for('user.logout') }}">Logout</a>
                     </div>
+                    </nav>
                 {% else %}
                     <div class="auth-links">
                         <a href="{{ url_for('user.login') }}">Login</a>
