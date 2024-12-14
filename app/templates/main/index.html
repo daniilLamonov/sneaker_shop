@@ -6,31 +6,37 @@
 <div class="container">
     <h2 class="section-title">Our Sneakers</h2>
     <div class="product-grid">
+        <!-- Цикл для отображения каждого товара из списка `products` -->
         {% for product in products %}
         <div class="product-card">
+            <!-- Изображение товара -->
             <img src="{{ url_for('static', filename='upload/' + product.image) }}" alt="{{ product.name }}">
+            <!-- Название товара -->
             <h3>{{ product.name }}</h3>
+            <!-- Размер, цвет и цена товара -->
             <p>{{ product.size }}</p>
             <p>{{ product.color }}</p>
             <p>{{ product.price }}</p>
+
+            <!-- Блок для администраторов -->
             {% if current_user.is_authenticated and current_user.status == 'admin' %}
+                <!-- Ссылки на редактирование и удаление товара -->
                 <a href= "{{ url_for('product.edit', id=product.id) }}" class="btn">Edit</a>
                 <a href= "{{ url_for('product.delete', id=product.id) }}" class="btn">Delete</a>
+
+            <!-- Блок для обычных пользователей -->
             {% elif current_user.is_authenticated and current_user.status == 'user'%}
+                <!-- Кнопка добавления товара в корзину -->
                 <form method="post" action="{{ url_for('cart.add_to_cart', product_id=product.id) }}">
                     <button type="submit" class="btn">Add to Cart</button>
                 </form>
-            {% else %}
 
+            <!-- Блок для неавторизованных пользователей -->
+            {% else %}
+                <!-- Пока пустой, можно добавить сообщение или ссылку на регистрацию -->
             {% endif %}
         </div>
         {% endfor %}
     </div>
 </div>
 {% endblock %}
-
-<!--products = [
-    {"id": 1, "name": "Sneaker 1", "price": 120, "image": "https://via.placeholder.com/200"},
-    {"id": 2, "name": "Sneaker 2", "price": 150, "image": "https://via.placeholder.com/200"},
-    {"id": 3, "name": "Sneaker 3", "price": 180, "image": "https://via.placeholder.com/200"},
-]-->

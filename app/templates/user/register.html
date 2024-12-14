@@ -1,26 +1,25 @@
-{% extends "main/base.html" %}
+{% extends "main/base.html" %}  <!-- Наследуемся от базового шаблона base.html -->
 
-{% block title %}Register - Sneaker Shop{% endblock %}
+{% block title %}Register - Sneaker Shop{% endblock %}  <!-- Устанавливаем заголовок страницы -->
 
 {% block content %}
-<div class="auth-container">
-    <h2>Register</h2>
-    <form method="post" enctype="multipart/form-data">
-        {{ form.csrf_token }}
-        {{ form.name (placeholder='Enter your name') }}
-        {{ form.email (placeholder='Enter your email')}}
-        {% if form.email.errors %}
-        <div class="invalid-feedback" style="display: block!important;">
-            {% for error in form.email.errors %}
-                <span>{{ error }}</span>
+<div class="auth-container">  <!-- Контейнер для формы регистрации -->
+    <h2>Register</h2>  <!-- Заголовок страницы -->
+    <form method="post" enctype="multipart/form-data">  <!-- Форма для отправки данных методом POST, поддерживающая загрузку файлов -->
+        {{ form.csrf_token }}  <!-- CSRF токен для защиты от атак (важно для безопасности) -->
+        {{ form.name (placeholder='Enter your name') }}  <!-- Поле для ввода имени с подсказкой -->
+        {{ form.email (placeholder='Enter your email') }}  <!-- Поле для ввода email с подсказкой -->
+        {% if form.email.errors %}  <!-- Если есть ошибки в поле email, отображаем их -->
+        <div class="invalid-feedback" style="display: block!important;">  <!-- Блок для отображения ошибок -->
+            {% for error in form.email.errors %}  <!-- Перебираем все ошибки в поле email -->
+                <span>{{ error }}</span>  <!-- Отображаем каждую ошибку -->
             {% endfor %}
         </div>
         {% endif %}
-
-        {{ form.password (placeholder='Enter password')}}
-        {{ form.confirm_password (placeholder='Confirm your password') }}
-        {{ form.submit }}
+        {{ form.password (placeholder='Enter password') }}  <!-- Поле для ввода пароля с подсказкой -->
+        {{ form.confirm_password (placeholder='Confirm your password') }}  <!-- Поле для подтверждения пароля -->
+        {{ form.submit }}  <!-- Кнопка отправки формы -->
     </form>
-    <p>Already have an account? <a href="{{ url_for('user.login') }}">Login here</a></p>
+    <p>Already have an account? <a href="{{ url_for('user.login') }}">Login here</a></p>  <!-- Ссылка на страницу входа -->
 </div>
 {% endblock %}

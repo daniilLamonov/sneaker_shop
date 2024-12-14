@@ -1,24 +1,32 @@
- <!-- Flash Messages -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <div class="flash-messages">
-                {% for category, message in messages %}
-                    <div class="alert alert-{{ category }}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            </div>
-         <script>
-            // Автоматическое скрытие flash-сообщений через 5 секунд
+<!-- Flash Messages -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <!-- Контейнер для флеш-сообщений -->
+        <div class="flash-messages">
+            <!-- Перебираем категории и сообщения -->
+            {% for category, message in messages %}
+                <!-- Сообщение с динамическим классом, зависящим от категории -->
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Скрипт для автоматического скрытия флеш-сообщений -->
+        <script>
+            // Ждем 5 секунд перед началом скрытия сообщений
             setTimeout(() => {
                 const flashMessages = document.querySelector('.flash-messages');
                 if (flashMessages) {
+                    // Добавляем эффект плавного исчезновения
                     flashMessages.style.transition = "opacity 0.5s ease";
-                    flashMessages.style.opacity = "0"; // Скрываем
-                    setTimeout(() => flashMessages.remove(), 500); // Удаляем через 500 мс
+                    flashMessages.style.opacity = "0"; // Начинаем исчезновение
+
+                    // Удаляем элемент из DOM после завершения анимации (через 500 мс)
+                    setTimeout(() => flashMessages.remove(), 500);
                 }
-            }, 5000); // 5000 мс = 5 секунд
+            }, 5000); // Скрытие начинается через 5 секунд
         </script>
-        {% endif %}
-    {% endwith %}
-    <!-- Flash Messages -->
+    {% endif %}
+{% endwith %}
+<!-- Flash Messages -->

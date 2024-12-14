@@ -1,102 +1,98 @@
 @import "fonts.css";
 
+/* Импорт файла с шрифтами */
+@import "fonts.css";
+
+/* Общие стили для всего сайта */
 body {
-    font-family: Parkinsans, sans-serif;
-    font-weight: normal;
+    font-family: Parkinsans, sans-serif; /* Основной шрифт */
+    font-weight: normal; /* Нормальная жирность текста */
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Унифицированное определение размеров */
 }
 
+/* Контейнер для центрирования содержимого */
 .container {
-    width: 80%;
-    margin: 0 auto;
+    width: 80%; /* Задаем ширину контейнера */
+    margin: 0 auto; /* Центрируем по горизонтали */
 }
 
+/* Стили для шапки */
 .header {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
+    background-color: #333; /* Темный фон */
+    color: white; /* Белый текст */
+    padding: 1rem; /* Внутренний отступ */
 }
 
-
-
-
-
-/* Стили для логотипа, если он является ссылкой */
+/* Стили для логотипа */
 .header .logo {
-    font-size: 2rem; /* Увеличенный размер шрифта */
-    font-weight: bold; /* Жирный текст */
-    text-transform: uppercase; /* Заглавные буквы */
-    color: white !important; /* Белый цвет */
-    text-decoration: none; /* Убираем подчеркивание */
-    transition: color 0.3s ease, transform 0.3s ease; /* Эффект при наведении */
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white !important;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease; /* Эффекты при наведении */
 }
 
-/* Для наведения на логотип */
 .header .logo:hover {
-    color: #ff9800 !important; /* Яркий оранжевый при наведении */
-    transform: scale(1.1); /* Легкое увеличение при наведении */
+    color: #ff9800 !important; /* Оранжевый цвет при наведении */
+    transform: scale(1.1); /* Увеличение */
 }
 
-/* В случае, если логотип - это ссылка, явно отменяем стили для ссылок */
-.header .logo a {
-    color: white !important; /* Белый цвет для ссылки */
-    text-decoration: none; /* Убираем подчеркивание */
-}
-
-/* Для наведения на ссылку в логотипе */
-.header .logo a:hover {
-    color: #ff9800 !important; /* Яркий оранжевый при наведении */
-}
-
-
-
-
+/* Стили для ссылок в шапке */
 .header .nav a {
     margin-left: 20px;
     color: white;
     text-decoration: none;
 }
 
+/* Стили для основного содержимого */
 .main {
     padding: 2rem 0;
 }
 
+/* Сетка товаров */
 .product-grid {
-    display: flex;
-    justify-content: space-around;
-    gap: 2rem;
+    display: flex; /* Используется флексбокс для расположения товаров */
+    justify-content: space-around; /* Равномерное распределение */
+    gap: 2rem; /* Расстояние между товарами */
 }
 
+/* Карточка товара */
 .product-card {
     width: 30%;
-    border: 1px solid #ddd;
+    border: 1px solid #ddd; /* Светло-серая рамка */
     padding: 1rem;
-    text-align: center;
+    text-align: center; /* Центрируем текст */
 }
 
+/* Изображение товара */
 .product-card img {
-    max-width: 100%;
-    height: auto;
+    max-width: 100%; /* Ограничение по ширине */
+    height: auto; /* Автоматическая высота */
 }
 
+/* Стили для заголовка товара */
 .product-title {
     font-size: 1.2rem;
 }
 
+/* Цена товара */
 .product-price {
-    color: #777;
+    color: #777; /* Серый цвет */
 }
 
+/* Кнопки */
 .btn {
-    background-color: #333;
-    color: white;
+    background-color: #333; /* Темный фон */
+    color: white; /* Белый текст */
     padding: 0.5rem 1rem;
     border: none;
     cursor: pointer;
 }
 
+/* Стили для форм авторизации */
 .auth-container {
     width: 400px;
     margin: 0 auto;
@@ -105,20 +101,13 @@ body {
     text-align: center;
 }
 
-.auth-container input {
+.auth-container input, .auth-container button {
     width: 100%;
     padding: 0.5rem;
     margin: 10px 0;
 }
 
-.auth-container button {
-    width: 100%;
-    padding: 0.5rem;
-}
-
-
-
-/* Общие стили для auth-links */
+/* Ссылки для авторизации */
 .auth-links {
     position: absolute;
     top: 20px;
@@ -126,7 +115,6 @@ body {
 }
 
 .auth-links a {
-    display: inline-block;
     margin-left: 10px;
     padding: 8px 15px;
     font-size: 14px;
@@ -139,29 +127,29 @@ body {
 }
 
 .auth-links a:hover {
-    background-color: white;
-    color: #333;
+    background-color: white; /* Белый фон при наведении */
+    color: #333; /* Темный текст */
 }
+
+/* Стили для подвала */
 .footer {
     text-align: center;
     background-color: #333;
     color: white;
     padding: 1rem;
-
-    position:fixed;
-    left:0px;
-    bottom:0px;
-    height:30px;
-    width:100%;
+    position: fixed; /* Фиксированное положение */
+    left: 0;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
 }
 
-
-
+/* Flash-сообщения */
 .flash-messages {
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 1000;
+    z-index: 1000; /* Поверх других элементов */
     width: 300px;
 }
 
@@ -174,15 +162,15 @@ body {
 }
 
 .alert-success {
-    background-color: #4caf50;
+    background-color: #4caf50; /* Зеленый фон для успеха */
 }
 
 .alert-error {
-    background-color: #f44336;
+    background-color: #f44336; /* Красный фон для ошибок */
 }
 
 .alert-warning {
-    background-color: #ff9800;
+    background-color: #ff9800; /* Оранжевый фон для предупреждений */
 }
 
 .flash-messages.fade-out {

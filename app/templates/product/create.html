@@ -1,18 +1,19 @@
-{% extends "main/base.html" %}
+{% extends "main/base.html" %}  <!-- Наследуемся от базового шаблона base.html -->
 
-{% block title %}Add goods - Sneaker Shop{% endblock %}
+{% block title %}Add goods - Sneaker Shop{% endblock %}  <!-- Устанавливаем заголовок страницы -->
 
 {% block content %}
-<div class="auth-container">
-    <h2>Add new product</h2>
-    <form method="post" enctype="multipart/form-data">
-        <input type="text" placeholder="Name" name="name" required>
-        <input type="text" placeholder="Size" name="size" required>
-        <input type="text" placeholder="Color" name="color" required>
-        <input type="text" placeholder="Price" name="price" required>
-        <input type="file" placeholder="Add Image" name="image" required>
+<div class="auth-container">  <!-- Контейнер для формы добавления товара -->
+    <h2>Add new product</h2>  <!-- Заголовок страницы -->
 
-        <button type="submit">Create</button>
+    <form method="post" enctype="multipart/form-data">  <!-- Форма отправки данных методом POST, поддерживающая загрузку файлов -->
+        <input type="text" placeholder="Name" name="name" required>  <!-- Поле для ввода названия товара -->
+        <input type="text" placeholder="Size" name="size" required>  <!-- Поле для ввода размера товара -->
+        <input type="text" placeholder="Color" name="color" required>  <!-- Поле для ввода цвета товара -->
+        <input type="text" placeholder="Price" name="price" required>  <!-- Поле для ввода цены товара -->
+        <input type="file" placeholder="Add Image" name="image" required>  <!-- Поле для загрузки изображения товара -->
+
+        <button type="submit">Create</button>  <!-- Кнопка для отправки формы и создания товара -->
     </form>
 </div>
 {% endblock %}

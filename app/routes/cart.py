@@ -36,5 +36,5 @@ def remove_from_cart(cart_id):
 def view_cart():
     cart_items = Cart.query.filter_by(user_id=current_user.id).all()
     total_price = sum(item.product.price * item.quantity for item in cart_items)
-    return render_template('cart.html', cart_items=cart_items, total_price=total_price)
+    return render_template('cart/cart.html', cart_items=cart_items, total_price=total_price)
 

@@ -1,17 +1,21 @@
-{% extends "main/base.html" %}
+{% extends "main/base.html" %}  <!-- Наследуемся от базового шаблона base.html -->
 
-{% block title %}Login - Sneaker Shop{% endblock %}
+{% block title %}Login - Sneaker Shop{% endblock %}  <!-- Устанавливаем заголовок страницы -->
 
 {% block content %}
-<div class="auth-container">
-    <h2>Login</h2>
-    <form method="post">
-        {{ form.csrf_token }}
-        {{ form.email (placeholder='Enter your email')}}
-        {{ form.password (placeholder='Enter password')}}
-        {{ form.remember }}
-        {{ form.submit }}
+<div class="auth-container">  <!-- Контейнер для формы авторизации -->
+    <h2>Login</h2>  <!-- Заголовок страницы -->
+    <form method="post">  <!-- Форма для отправки данных методом POST -->
+        {{ form.csrf_token }}  <!-- CSRF токен для защиты от атак (важно для безопасности) -->
+
+        {{ form.email (placeholder='Enter your email') }}  <!-- Поле для ввода email с подсказкой -->
+        {{ form.password (placeholder='Enter password') }}  <!-- Поле для ввода пароля с подсказкой -->
+
+        {{ form.remember }}  <!-- Чекбокс "Запомнить меня" -->
+
+        {{ form.submit }}  <!-- Кнопка отправки формы -->
     </form>
-    <p>Don't have an account? <a href="{{ url_for('user.register') }}">Register here</a></p>
+
+    <p>Don't have an account? <a href="{{ url_for('user.register') }}">Register here</a></p>  <!-- Ссылка на страницу регистрации -->
 </div>
 {% endblock %}
