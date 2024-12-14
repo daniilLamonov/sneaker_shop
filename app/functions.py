@@ -19,10 +19,10 @@ def save_picture(picture):  # picture — это объект файла, заг
     picture_path = os.path.join(current_app.config["UPLOAD_FOLDER"], picture_fn)
     # current_app используется для доступа к конфигурации приложения Flask, например, UPLOAD_FOLDER
 
-    # Задаем максимальный размер изображения (уменьшаем до 250x250 пикселей)
-    output_size = (250, 250)
+    # # Задаем максимальный размер изображения (уменьшаем до 250x250 пикселей)
+    # output_size = (900, 900)
     i = Image.open(picture)  # Открываем файл изображения
-    i.thumbnail(output_size)  # Пропорционально уменьшаем размеры изображения до заданного output_size
+    # i.thumbnail(output_size)  # Пропорционально уменьшаем размеры изображения до заданного output_size
 
     # Сохраняем уменьшенное изображение по указанному пути
     i.save(picture_path)

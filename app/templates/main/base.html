@@ -8,6 +8,7 @@
     <title>{% block title %}Sneaker Shop{% endblock %}</title>
     <!-- Подключение файла стилей -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/alert.css') }}">
 </head>
 <body>
     <!-- Заголовок страницы -->
@@ -15,7 +16,6 @@
         <div class="container">
             <!-- Логотип с ссылкой на главную страницу -->
             <h1 class="logo"><a href="{{ url_for('main.index') }}">Sneaker Shop</a></h1>
-
             <!-- Проверка статуса пользователя -->
             {% if current_user.is_authenticated and current_user.status == 'admin' %}
                 <!-- Навигация для администратора -->

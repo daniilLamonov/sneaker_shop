@@ -1,179 +1,205 @@
 @import "fonts.css";
+/* Импорт файла с шрифтами для использования на сайте */
 
-/* Импорт файла с шрифтами */
 @import "fonts.css";
+/* Повторный импорт файла с шрифтами (обычно это избыточно, так как файл импортируется дважды) */
+
+
 
 /* Общие стили для всего сайта */
 body {
-    font-family: Parkinsans, sans-serif; /* Основной шрифт */
-    font-weight: normal; /* Нормальная жирность текста */
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Унифицированное определение размеров */
+    font-family: Parkinsans, sans-serif; /* Устанавливаем основной шрифт сайта */
+    font-weight: normal; /* Устанавливаем обычную жирность текста */
+    margin: 0; /* Убираем внешние отступы */
+    padding: 0; /* Убираем внутренние отступы */
+    box-sizing: border-box; /* Все размеры учитывают отступы и границы, чтобы элементы не выходили за пределы */
 }
 
 /* Контейнер для центрирования содержимого */
 .container {
-    width: 80%; /* Задаем ширину контейнера */
-    margin: 0 auto; /* Центрируем по горизонтали */
+    width: 80%; /* Устанавливаем ширину контейнера 80% от ширины экрана */
+    margin: 0 auto; /* Центрируем контейнер по горизонтали */
 }
 
 /* Стили для шапки */
 .header {
-    background-color: #333; /* Темный фон */
-    color: white; /* Белый текст */
-    padding: 1rem; /* Внутренний отступ */
+    background-color: #333; /* Темный фон для шапки */
+    color: white; /* Белый цвет текста */
+    padding: 1rem; /* Внутренний отступ 1rem */
 }
 
 /* Стили для логотипа */
-.header .logo {
-    font-size: 2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: white !important;
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease; /* Эффекты при наведении */
-}
-
-.header .logo:hover {
-    color: #ff9800 !important; /* Оранжевый цвет при наведении */
-    transform: scale(1.1); /* Увеличение */
+.header .logo a{
+    font-size: 2rem; /* Размер шрифта для логотипа */
+    font-weight: bold; /* Жирное начертание текста */
+    text-transform: uppercase; /* Преобразование текста в верхний регистр */
+    color: white; /* Белый цвет текста */
+    text-decoration: none; /* Убираем подчеркивание с текста */
+    transition: color 0.3s ease, transform 0.3s ease; /* Плавный переход при наведении на цвет и трансформацию */
 }
 
 /* Стили для ссылок в шапке */
 .header .nav a {
-    margin-left: 20px;
-    color: white;
-    text-decoration: none;
-}
-
-/* Стили для основного содержимого */
-.main {
-    padding: 2rem 0;
-}
-
-/* Сетка товаров */
-.product-grid {
-    display: flex; /* Используется флексбокс для расположения товаров */
-    justify-content: space-around; /* Равномерное распределение */
-    gap: 2rem; /* Расстояние между товарами */
-}
-
-/* Карточка товара */
-.product-card {
-    width: 30%;
-    border: 1px solid #ddd; /* Светло-серая рамка */
-    padding: 1rem;
-    text-align: center; /* Центрируем текст */
-}
-
-/* Изображение товара */
-.product-card img {
-    max-width: 100%; /* Ограничение по ширине */
-    height: auto; /* Автоматическая высота */
-}
-
-/* Стили для заголовка товара */
-.product-title {
-    font-size: 1.2rem;
-}
-
-/* Цена товара */
-.product-price {
-    color: #777; /* Серый цвет */
-}
-
-/* Кнопки */
-.btn {
-    background-color: #333; /* Темный фон */
-    color: white; /* Белый текст */
-    padding: 0.5rem 1rem;
-    border: none;
-    cursor: pointer;
-}
-
-/* Стили для форм авторизации */
-.auth-container {
-    width: 400px;
-    margin: 0 auto;
-    padding: 2rem;
-    border: 1px solid #ddd;
-    text-align: center;
-}
-
-.auth-container input, .auth-container button {
-    width: 100%;
-    padding: 0.5rem;
-    margin: 10px 0;
+    margin-left: 20px; /* Отступ слева для каждой ссылки */
+    color: white; /* Белый цвет текста */
+    text-decoration: none; /* Убираем подчеркивание с ссылок */
 }
 
 /* Ссылки для авторизации */
 .auth-links {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    position: absolute; /* Абсолютное позиционирование */
+    top: 35px; /* Расположить на 35px ниже верхней границы родительского элемента */
+    right: 20px; /* Расположить на 20px левее правой границы родительского элемента */
 }
 
 .auth-links a {
-    margin-left: 10px;
-    padding: 8px 15px;
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
-    background-color: #555;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-left: 10px; /* Отступ слева между ссылками */
+    padding: 8px 15px; /* Внутренние отступы для ссылок */
+    font-size: 14px; /* Размер шрифта */
+    font-weight: bold; /* Жирное начертание */
+    color: white; /* Белый цвет текста */
+    background-color: #555; /* Темный фон */
+    text-decoration: none; /* Убираем подчеркивание с ссылок */
+    border-radius: 5px; /* Скругленные углы */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Плавный переход для фона и текста при наведении */
 }
 
 .auth-links a:hover {
     background-color: white; /* Белый фон при наведении */
-    color: #333; /* Темный текст */
+    color: #333; /* Темный цвет текста при наведении */
+}
+
+/* Стили для основного содержимого */
+.main {
+    padding: 2rem 0; /* Внутренние отступы для основного блока */
+}
+
+/* Глобальная сетка для товаров */
+.product-grid {
+    display: grid; /* Используем CSS Grid для расположения элементов */
+    grid-template-columns: repeat(3, 1fr); /* Задаем 3 колонки одинаковой ширины */
+    gap: 2rem; /* Расстояние между карточками товаров */
+}
+
+/* Карточка товара */
+.product-card {
+    border: 1px solid #ddd; /* Светлая рамка вокруг карточки */
+    padding: 1rem; /* Внутренний отступ внутри карточки */
+    text-align: center; /* Центрируем текст в карточке */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Добавляем легкую тень для карточки */
+
+}
+
+/* Изображение товара */
+.product-card img {
+    max-height: 70%;
+    max-width: 100%; /* Ограничиваем максимальную ширину изображения */
+    height: auto; /* Автоматическая высота изображения */
+}
+
+/* Стили для заголовка товара */
+.product-title {
+    font-size: 1.2rem; /* Размер шрифта заголовка товара */
+}
+
+/* Цена товара */
+.product-price {
+    color: #777; /* Серый цвет для цены */
+}
+
+/* Кнопки */
+.btn {
+    background-color: #333; /* Темный фон кнопки */
+    color: white; /* Белый цвет текста на кнопке */
+    padding: 0.5rem 1rem; /* Внутренние отступы кнопки */
+    border: none; /* Без границы */
+    cursor: pointer; /* Курсор в виде указателя */
+}
+
+/* Стили для форм авторизации */
+.auth-container {
+    width: 400px; /* Ширина контейнера формы */
+    margin: 0 auto; /* Центрируем форму по горизонтали */
+    padding: 2rem; /* Внутренние отступы */
+    border: 1px solid #ddd; /* Светлая рамка вокруг формы */
+    text-align: center; /* Центрируем текст внутри формы */
+}
+
+.auth-container input, .auth-container button {
+    width: 100%; /* Ширина полей ввода и кнопок 100% от ширины контейнера */
+    padding: 0.5rem; /* Внутренний отступ */
+    margin: 10px 0; /* Отступы сверху и снизу */
 }
 
 /* Стили для подвала */
 .footer {
-    text-align: center;
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-    position: fixed; /* Фиксированное положение */
-    left: 0;
-    bottom: 0;
-    height: 30px;
-    width: 100%;
+    text-align: center; /* Центрируем текст в подвале */
+    background-color: #333; /* Темный фон */
+    color: white; /* Белый цвет текста */
+    padding: 1rem; /* Внутренний отступ */
+    position: relative; /* Абсолютное позиционирование заменено на относительное */
+    height: auto; /* Убираем фиксированную высоту */
+    width: 100%; /* Задаем ширину 100% */
+    margin-top: 20px; /* Добавляем отступ сверху */
 }
 
-/* Flash-сообщения */
-.flash-messages {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000; /* Поверх других элементов */
-    width: 300px;
+
+
+
+
+
+
+
+/* Стили для страницы товара */
+.product-details {
+    display: flex; /* Используем флекс для размещения изображения и информации */
+    justify-content: space-between; /* Расстояние между изображением и информацией */
+    align-items: center; /* Вертикальное выравнивание */
+    margin-top: 2rem;
 }
 
-.alert {
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    color: white;
-    font-size: 14px;
+.product-image-container {
+    flex: 1; /* Занимает 1 часть от доступного пространства */
+    max-width: 500px; /* Ограничиваем максимальную ширину изображения */
 }
 
-.alert-success {
-    background-color: #4caf50; /* Зеленый фон для успеха */
+.product-image {
+    width: 100%; /* Изображение занимает 100% доступной ширины */
+    height: auto; /* Сохраняем пропорции */
+    border-radius: 8px; /* Скругляем углы изображения */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Добавляем тень для изображения */
 }
 
-.alert-error {
-    background-color: #f44336; /* Красный фон для ошибок */
+.product-info {
+    flex: 2; /* Информация о товаре занимает больше места */
+    padding-left: 2rem; /* Отступ слева от изображения */
+    max-width: 600px; /* Ограничиваем максимальную ширину информации */
 }
 
-.alert-warning {
-    background-color: #ff9800; /* Оранжевый фон для предупреждений */
+.product-info h2 {
+    font-size: 2rem; /* Увеличиваем размер шрифта для названия товара */
+    margin-bottom: 1rem; /* Отступ снизу */
 }
 
-.flash-messages.fade-out {
-    opacity: 0;
-    transition: opacity 0.5s ease; /* Плавное исчезновение */
+.product-info p {
+    font-size: 1.1rem; /* Размер шрифта для описания и цены */
+    margin-bottom: 1rem; /* Отступ снизу между абзацами */
 }
+
+.product-info .btn {
+    background-color: #333; /* Темный фон кнопки */
+    color: white; /* Белый цвет текста */
+    padding: 10px 20px; /* Внутренние отступы */
+    border-radius: 5px; /* Скругленные углы */
+    text-decoration: none; /* Убираем подчеркивание с кнопки */
+    text-align: center; /* Выравнивание текста по центру */
+    display: inline-block; /* Чтобы кнопка располагалась рядом с текстом */
+    font-size: 1rem; /* Размер шрифта на кнопке */
+}
+
+.product-info .btn:hover {
+    background-color: #555; /* Темный фон при наведении */
+}
+
+
+

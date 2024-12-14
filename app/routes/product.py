@@ -47,8 +47,9 @@ def edit(id):
         product.price = request.form.get('price')
         product.color = request.form.get('color')
         product.size = request.form.get('size')
-        product.image = request.files.get('image')
 
+        # Получаем изображение и сохраняем его с помощью функции save_picture
+        product.image = save_picture(request.files.get('image'))
         try:
             db.session.commit()  # Сохраняем изменения в базе данных
             return redirect('/')  # Перенаправляем на главную страницу
@@ -71,3 +72,7 @@ def delete(id):
         return redirect('/')  # Перенаправляем на главную страницу
     except Exception as e:
         print(str(e))  # Логируем ошибку (можно улучшить обработку ошибок, например, с использованием flash-сообщений)
+@product.route('/products/<int:id>/detail/', methods=['GET', 'POST'])
+def detail(id):
+    product = Product.query.get(id)
+    return render_template('/product/detail.html', product=product)
