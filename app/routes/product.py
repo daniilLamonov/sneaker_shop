@@ -1,5 +1,8 @@
-from flask import Blueprint, render_template, request, redirect, flash  # Импортируем необходимые модули из Flask
-from flask_login import login_required  # Импортируем декоратор для защиты маршрутов от незалогиненных пользователей
+from flask import Blueprint, render_template, request, redirect, flash, \
+    url_for  # Импортируем необходимые модули из Flask
+from flask_login import login_required, \
+    current_user  # Импортируем декоратор для защиты маршрутов от незалогиненных пользователей
+
 
 from ..functions import save_picture  # Импортируем функцию для сохранения изображений
 from ..extensions import db  # Импортируем объект базы данных для работы с моделями
@@ -76,3 +79,33 @@ def delete(id):
 def detail(id):
     product = Product.query.get(id)
     return render_template('/product/detail.html', product=product)
+@product.route('/products/manage', methods=['GET', 'POST'])
+@login_required
+def manage():
+    def update_inventory():
+        if current_user.status != 'admin':
+            flash("Access denied.", "danger")
+            return redirect(url_for('/'))
+    products = Product.query.all()
+    return render_template('/product/inventory.html', products=products)
+
+
+@product.route('/admin/inventory/update', methods=['POST'])
+@login_required
+def update_inventory():
+    if current_user.status != 'admin':
+        flash("Access denied.", "danger")
+        return redirect(url_for('/'))
+
+    product_id = request.form.get('product_id')
+    quantity = int(request.form.get('quantity'))
+
+    product = Product.query.get(product_id)
+    if product:
+        product.stock_quantity += quantity
+        db.session.commit()
+        flash(f"Stock updated for {product.name}.", "success")
+    else:
+        flash("Product not found.", "danger")
+
+    return redirect(url_for('product.manage'))

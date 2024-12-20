@@ -8,4 +8,5 @@ class Product(db.Model):
     size = db.Column(db.String(10))
     price = db.Column(db.Float)
     image = db.Column(db.String(200))
+    stock_quantity = db.Column(db.Integer, default=0) # Количество на складе
 

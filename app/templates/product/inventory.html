@@ -1,0 +1,30 @@
+{% extends "main/base.html" %}  <!-- Наследуемся от базового шаблона base.html -->
+
+{% block title %}Edit goods - Sneaker Shop{% endblock %}  <!-- Устанавливаем заголовок страницы -->
+
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Stock</th>
+            <th>Receipt prod</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.stock_quantity }}</td>
+            <td>
+                <form action="{{ url_for('product.update_inventory') }}" method="post">
+                    <input type="hidden" name="product_id" value="{{ product.id }}">
+                    <input type="number" name="quantity" placeholder="Enter quantity" required>
+                    <button type="submit">Update</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

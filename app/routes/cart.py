@@ -38,3 +38,29 @@ def view_cart():
     total_price = sum(item.product.price * item.quantity for item in cart_items)
     return render_template('cart/cart.html', cart_items=cart_items, total_price=total_price)
 
+
+@cart.route('/cart/checkout', methods=['POST'])
+@login_required
+def checkout():
+    cart_items = Cart.query.filter_by(
+        user_id=current_user.id).all()  # Получаем все товары в корзине текущего пользователя
+
+    # Проверяем наличие товара на складе
+    for item in cart_items:
+        product = Product.query.get(item.product_id)
+        if product and product.stock_quantity >= item.quantity:
+            product.stock_quantity -= item.quantity  # Уменьшаем количество товара на складе
+        else:
+            flash(f"Not enough stock for {product.name}.", 'danger')  # Если товара недостаточно, показываем ошибку
+            return redirect(url_for('cart.view_cart'))  # Перенаправляем назад в корзину
+
+    # Если все товары на складе есть, то удаляем товары из корзины
+    for item in cart_items:
+        db.session.delete(item)
+
+    db.session.commit()  # Сохраняем изменения в базе данных
+
+    flash("Your order has been successfully placed!", 'success')  # Сообщение об успешном заказе
+    return redirect(url_for('main.index'))  # Перенаправляем на главную страницу или страницу подтверждения заказа
+
+

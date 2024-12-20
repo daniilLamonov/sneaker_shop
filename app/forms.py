@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm  # Импорт FlaskForm для создания форм в Flask
+from wtforms.fields.numeric import IntegerField
 from wtforms.fields.simple import StringField, PasswordField, SubmitField, BooleanField  # Импорт полей формы (строки, пароль, кнопка и булево)
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError  # Импорт валидаторов для проверки данных
 from .models.user import User  # Импорт модели пользователя для проверки существующих пользователей
@@ -23,3 +24,9 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])  # Поле для пароля с обязательной валидацией
     remember = BooleanField('Remember Me')  # Чекбокс для запоминания пользователя при входе
     submit = SubmitField('Log In')  # Кнопка отправки формы
+
+
+class StockForm(FlaskForm):
+    quantity = IntegerField('Quantity to Add', validators=[DataRequired()])
+    submit = SubmitField('Update Stock')
+
