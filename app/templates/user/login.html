@@ -11,7 +11,8 @@
         {{ form.email (placeholder='Enter your email') }}  <!-- Поле для ввода email с подсказкой -->
         {{ form.password (placeholder='Enter password') }}  <!-- Поле для ввода пароля с подсказкой -->
 
-        {{ form.remember }}  <!-- Чекбокс "Запомнить меня" -->
+        <!-- Отображение текста "Remember Me" рядом с чекбоксом -->
+        {{ form.remember }} Remember Me
 
         {{ form.submit }}  <!-- Кнопка отправки формы -->
     </form>
